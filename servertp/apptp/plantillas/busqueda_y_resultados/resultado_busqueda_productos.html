@@ -1,0 +1,29 @@
+{% extends 'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\base.html' %}
+
+{% block cuerpo %}
+<head>
+    <title>Resultado de la Busqueda</title>
+</head>
+<body>
+
+    <p>Producto que desea buscar: {{producto}}</p>
+
+    {% if productos %}
+
+    <ul>
+        {% for articulo in productos %}
+
+            <li>{{articulo.nombre_producto}}</li>
+
+        {% endfor %}
+    </ul>
+{% else %}
+
+    <p>No se encuentra el producto buscado</p>
+
+{% endif %}
+
+</body>
+</html>
+
+{% endblock %}

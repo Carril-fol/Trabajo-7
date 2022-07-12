@@ -1,0 +1,22 @@
+{% extends 'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\base.html' %}
+
+{% block cuerpo %}
+
+<head>
+    <title>Busquedas</title>
+</head>
+<body>
+
+    <h4>Busqueda de productos</h4>
+
+    <form action= "/indice/busqueda/productos/" method="GET">
+
+        <input type="text" name="nombre_producto">
+        
+        <input type="submit" value="Buscar">
+
+    </form>
+</body>
+
+
+{% endblock %}

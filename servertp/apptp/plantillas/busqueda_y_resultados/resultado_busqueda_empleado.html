@@ -1,0 +1,32 @@
+{% extends 'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\base.html' %}
+
+{% block cuerpo %}
+
+<head>
+
+    <title>Resultado de la Busqueda</title>
+
+</head>
+
+<body>
+
+    <p>Empleado que desea buscar: {{empleado}}</p>
+
+    {% if empleados %}
+
+    <ul>
+        {% for persona in empleados %}
+
+            <li>{{persona.nombre_completo}} / {{persona.puesto}}</li>
+
+        {% endfor %}
+    </ul>
+{% else %}
+
+    <p>No se encuentra la persona en la base de datos. Si quiere agregarla vaya al formulario de persona para agregar!</p>
+
+{% endif %}
+
+</body>
+
+{% endblock %}

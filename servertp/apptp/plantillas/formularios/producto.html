@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Producto</title>
+</head>
+
+<body>
+
+    <ul class='nav nav-pilis'>
+        <li role="presentation" class="active"><a href="http://127.0.0.1:8000/indice/">Inicio</a></li>
+        <li role="presentation"><a href="http://127.0.0.1:8000/indice/empresa/">Formulario de Empresa - Agregar</a></li>
+        <li role="presentation"><a href="http://127.0.0.1:8000/indice/empresa/empleado/">Formulario de Empleados - Agregar</a></li>
+        <li role="presentation"><a href="http://127.0.0.1:8000/indice/busqueda/">Buscador</a></li>
+    </ul>
+
+    <h2>Formulario de Producto a rellenar</h2>
+
+    {% if miformularioProducto.errors %}
+
+    <p style="color: red;">Hay un error en los datos ingresados</p>
+
+    {% endif %}
+
+    <form action="" method="POST">{% csrf_token %} 
+    
+        <table>
+    
+            {{ miformularioProducto.as_table }}
+    
+        </table>
+
+    
+        <input type="submit", value="Enviar">
+    
+    </form>
+
+</body>
+
+</html>

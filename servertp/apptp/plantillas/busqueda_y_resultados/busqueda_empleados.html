@@ -1,0 +1,19 @@
+{% extends 'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\base.html' %}
+
+{% block cuerpo %}
+
+<body>
+
+    <h4>Busqueda de Empleados</h4>
+
+    <form action="/indice/busqueda/empleados/" method="GET"> <!-- En action va, el final del url de donde saca la info-->
+
+        <input type="text" name="nombre_completo">
+       
+        <input type="submit" value="Buscar">
+
+    </form>
+
+</body>
+
+{% endblock %}
