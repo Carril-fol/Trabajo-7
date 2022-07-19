@@ -1,7 +1,6 @@
-{% extends 'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\base.html' %}
+{% extends 'base.html' %}
 
 {% block cuerpo %}
-
 <head>
 
     <title>Resultado de la Busqueda</title>
@@ -17,7 +16,7 @@
     <ul>
         {% for persona in empleados %}
 
-            <li>{{persona.nombre_completo}} / {{persona.puesto}}</li>
+        <li>{{persona.nombre_completo}} / {{persona.puesto}} / {{persona.empresa_trabajo}}</li>
 
         {% endfor %}
     </ul>
@@ -28,5 +27,4 @@
 {% endif %}
 
 </body>
-
 {% endblock %}

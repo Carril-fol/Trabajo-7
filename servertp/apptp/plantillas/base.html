@@ -1,32 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
-</head>
-<body>
     
-<!-- Header -->   
-<ul class='nav nav-pilis'>
-    <li role="presentation"><a href="http://127.0.0.1:8000/indice/">Home</a></li>
-    <li role="presentation"><a href="http://127.0.0.1:8000/indice/formulario-empresa/">Formulario de Empresa - Agregar</a></li>
-    <li role="presentation"><a href="http://127.0.0.1:8000/indice/empresa/formulario-producto/">Formulario de Producto - Agregar</a></li>
-    <li role="presentation"><a href="http://127.0.0.1:8000/indice/empresa/formulario-empleado/'">Formulario de Empleados - Agregar</a></li>
-    <li role="presentation"><a href="http://127.0.0.1:8000/indice/busqueda-productos/">Busqueda de productos</a></li>
-    <li role="presentation"><a href="http://127.0.0.1:8000/indice/busqueda-empleados/">Busqueda de Empleados</a></li>
-</ul>
+    <title>
+
+        {% block title%}
+        Inicio
+        {% endblock title%}
+
+    </title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+    <body>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+<header>
+        {% block navbar%}
+        <!--Navbar-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+                <div class="container">
+                    <a class="navbar-brand" href="http://127.0.0.1:8000">Inicio</a>
+                    <a class="navbar-brand" href="http://127.0.0.1:8000/inicio/formulario-empresa/">Formulario Empresa - Agregar</a>
+                    <a class="navbar-brand" href="http://127.0.0.1:8000/inicio/formulario-producto/">Formulario Producto - Agregar / Busqueda</a>
+                    <a class="navbar-brand" href="http://127.0.0.1:8000/inicio/formulario-empleado/">Formulario de Empleados - Agregar / Busqueda</a>
+                </div>
+          </nav>
+        {% endblock navbar %}  
+        <!--End Navbar-->
+</header>
+
 <!-- Contenido -->
 {% block cuerpo %}
-{% endblock %}
+{% endblock cuerpo %}
+
 
 <!-- Esto es el pie -->
-<div class="container-fluid footer navbar-fixed-bottom">
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    <a class="text-dark" href="https://web.com/">web.com</a>
-</div>
-</div>
+<footer class="text-center text-lg-start bg-light text-muted">
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>
+              Trabajo De Coder House - Curso de Python
+            </h6>
+            <p>
+                Es un trabajo donde hay 3 formularios para rellenar y 2 buscadores,
+                uno para los productos y saber de qué empresa son, y otro para saber
+                el nombre, puesto y a la empresa que están trabajando más fácilmente
+            </p>
+          </div>
 
-</body>
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+                Links
+            </h6>
+            <p>
+                <a href="https://plataforma.coderhouse.com/" class="text-reset">Coder House</a>
+            </p>
+            <p>
+              <a href="https://github.com/Carril-fol" class="text-reset">GitHub</a>
+            </p>
+          </div>
+    </section>
+ 
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2021 Copyright:
+      <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+  </footer>
+
+    </body>
 </html>

@@ -55,16 +55,7 @@ ROOT_URLCONF = 'servertp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\base.html',
-                    r'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\gracias.html',
-                        r'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\formularios\empleado.html',
-                            r'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\formularios\empresa.html',
-                                r'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\formularios\producto.html',
-                                    r'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\busqueda_y_resultados\busqueda_empleados.html',
-                                        r'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\busqueda_y_resultados\busqueda_productos.html',
-                                            r'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\busqueda_y_resultados\resultado_busqueda_empleado.html',
-                                                r'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\busqueda_y_resultados\resultado_busqueda_productos.html',
-                                                    r'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\mensaje.html'],
+        'DIRS': [r'apptp\plantillas', r'apptp\plantillas\formularios', r'apptp\plantillas\busqueda_y_resultados'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Formulario de Empleado</title>
-</head>
-<body>
-    <ul class='nav nav-pilis'>
-        <li role="presentation" class="active"><a href="http://127.0.0.1:8000/indice/">Inicio</a></li>
-        <li role="presentation"><a href="http://127.0.0.1:8000/indice/empresa/">Formulario de Empresa</a></li>
-        <li role="presentation"><a href="http://127.0.0.1:8000/indice/empresa/producto/">Formulario de Producto</a></li>
-        <li role="presentation"><a href="http://127.0.0.1:8000/indice/busqueda/">Buscador</a></li>
-    </ul>
+{% extends 'base.html' %}
 
-    <h2>Formulario de Empleado a rellenar</h2>
+{% block title%}
+Empleado Formulario
+{% endblock title%}
+
+{% block cuerpo %}
+    <h4>Formulario de Empleado a rellenar</h4>
 
     {% if miformularioEmpleado.errors %}
     
@@ -23,17 +14,23 @@
     {% endif %}
     
     <form action="" method="POST">{% csrf_token %} 
-    
-        <table>
-    
-            {{ miformularioEmpleado.as_table }}
-    
-        </table>
+        <table class="table-info">
+            
+        {{ miformularioEmpleado.as_table }}
 
+        </table>
     
-        <input type="submit", value="Enviar">
-    
+
+        <button type="submit" class="btn btn-outline-primary">Enviar</button>
     </form>
 
-</body>
-</html>
+    <h5>Buscador de Empleados</h5>
+
+    <form action="{% url 'resultado/empleados/' %}" method="GET"> <!-- En action va, el final del url de donde saca la info-->
+
+        <input type="text" name="nombre_completo">
+       
+        <button type="submit" class="btn btn-outline-primary">Buscar</button>
+
+    </form>
+{% endblock cuerpo %}

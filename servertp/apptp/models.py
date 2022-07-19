@@ -13,6 +13,7 @@ class Empleado(models.Model):
 
     nombre_completo = models.CharField(max_length=50)
     puesto = models.CharField(max_length=250)
+    empresa_trabajo = models.CharField(max_length=250)
 
     def __str__(self):
         return f'{self.nombre_completo} / {self.puesto}'
@@ -20,6 +21,7 @@ class Empleado(models.Model):
 class Producto(models.Model):
 
     nombre_producto = models.CharField(max_length=250)
+    producto_empresa = models.CharField(max_length=250)
 
     def __str__(self):
         return f'{self.nombre_producto}'

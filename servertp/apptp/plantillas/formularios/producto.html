@@ -1,22 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Producto</title>
-</head>
+{% extends 'base.html' %}
 
-<body>
+{% block title%}
+Producto Formulario
+{% endblock title%}
 
-    <ul class='nav nav-pilis'>
-        <li role="presentation" class="active"><a href="http://127.0.0.1:8000/indice/">Inicio</a></li>
-        <li role="presentation"><a href="http://127.0.0.1:8000/indice/empresa/">Formulario de Empresa - Agregar</a></li>
-        <li role="presentation"><a href="http://127.0.0.1:8000/indice/empresa/empleado/">Formulario de Empleados - Agregar</a></li>
-        <li role="presentation"><a href="http://127.0.0.1:8000/indice/busqueda/">Buscador</a></li>
-    </ul>
-
-    <h2>Formulario de Producto a rellenar</h2>
+{% block cuerpo %}
+    <h4>Formulario de Producto a rellenar</h4>
 
     {% if miformularioProducto.errors %}
 
@@ -24,19 +13,25 @@
 
     {% endif %}
 
-    <form action="" method="POST">{% csrf_token %} 
-    
+    <form action="" method="POST">{% csrf_token %}
         <table>
-    
+
             {{ miformularioProducto.as_table }}
-    
+
         </table>
 
-    
-        <input type="submit", value="Enviar">
-    
+        <button type="submit" class="btn btn-outline-primary">Enviar</button> 
     </form>
+    
+    <h5>Buscador de Productos</h5>
 
-</body>
+    <form action="{% url 'resultado/productos/' %}" method="GET"> <!-- En action va, el final del url de donde saca la info-->
+
+        <input type="text" name="nombre_producto"> 
+
+        <button type="submit" class="btn btn-outline-primary">Buscar</button> 
+       
+    </form>
+{% endblock cuerpo %}   
 
 </html>

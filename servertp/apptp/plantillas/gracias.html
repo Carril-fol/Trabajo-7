@@ -1,11 +1,27 @@
-{% extends 'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\base.html' %}
+{% extends 'base.html' %}
+
+{% block title%}
+Gracias Por la informacion!
+{% endblock title%}
+
+{% block navbar%}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+    <div class="container">
+      <a class="navbar-brand" href="http://127.0.0.1:8000">Inicio</a>
+      <a class="navbar-brand" href="http://127.0.0.1:8000/inicio/formulario-empresa/">Formulario Empresa - Agregar</a>
+      <a class="navbar-brand" href="http://127.0.0.1:8000/inicio/formulario-producto/">Formulario Producto - Agregar</a>
+      <a class="navbar-brand" href="http://127.0.0.1:8000/inicio/formulario-empleado/">Formulario de Empleados - Agregar</a>
+
+    </div>
+  </nav>
+
+{% endblock navbar %} 
 
 {% block cuerpo %}
-
 <body>
 
-    <h4>Gracias por la informacion, ahora esta en la base de datos!</4>
+    <p>Gracias por la informacion, ahora esta en la base de datos!</p>
 
 </body>
-
-{% endblock %}
+{% endblock cuerpo %}

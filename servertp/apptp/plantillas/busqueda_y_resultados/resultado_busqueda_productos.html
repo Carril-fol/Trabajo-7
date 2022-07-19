@@ -6,17 +6,18 @@
 </head>
 <body>
 
-    <p>Producto que desea buscar: {{producto}}</p>
+    <p>Producto que desea buscar: {{producto}}.</p>
 
     {% if productos %}
 
     <ul>
         {% for articulo in productos %}
 
-            <li>{{articulo.nombre_producto}}</li>
+            <li>{{articulo.nombre_producto}} / {{articulo.producto_empresa}}</li>
 
         {% endfor %}
     </ul>
+
 {% else %}
 
     <p>No se encuentra el producto buscado</p>
@@ -24,6 +25,4 @@
 {% endif %}
 
 </body>
-</html>
-
 {% endblock %}

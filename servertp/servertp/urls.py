@@ -13,18 +13,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from xml.etree.ElementInclude import include
 from django.contrib import admin
 from django.urls import path
 from apptp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('indice/', views.mostrar_inicio),
-    path('indice/formulario-empresa/', views.empresa_formulario),
-    path('indice/empresa/formulario-producto/', views.producto_formulario),
-    path('indice/empresa/formulario-empleado/', views.empleado_formulario),
-    path('indice/busqueda-productos/', views.busqueda_producto),
-    path('indice/busqueda-empleados/', views.busqueda_empleados),
-    path('indice/busqueda/productos/', views.buscar_producto),
-    path('indice/busqueda/empleados/', views.buscar_persona)
+    path('', views.inicio),
+    path('inicio/formulario-empresa/', views.empresa_formulario),
+    path('inicio/formulario-producto/', views.producto_formulario),
+    path('inicio/formulario-empleado/', views.empleado_formulario),
+    path('busqueda-productos/', views.busqueda_producto),
+    path('busqueda-empleados/', views.busqueda_empleados),
+    path('productos/', views.resultado_producto, name='resultado/productos/'),
+    path('empleados/', views.resultado_persona, name='resultado/empleados/')
 ]

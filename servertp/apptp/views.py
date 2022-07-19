@@ -1,3 +1,4 @@
+from distutils.log import info
 from django.http import HttpResponse
 from django.shortcuts import render
 from apptp.models import Empresa, Empleado, Producto
@@ -5,10 +6,9 @@ from apptp.forms import Empleado_formulario, Empresa_formulario, Producto_formul
 
 
 # Create your views here.
-def mostrar_inicio(request):
+def inicio(request):
     context = {}
-    return render(request, r'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\base.html', context)
-
+    return render(request, 'base.html', context)
 
 def empresa_formulario(request):
 
@@ -24,14 +24,13 @@ def empresa_formulario(request):
 
             empresa.save() #La informacion se manda a la base de datos y se queda ahi, se puede ver reflejado en el admin 
 
-            return render(request, r'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\gracias.html') #HTML de gracias
+            return render(request, 'gracias.html') #HTML de gracias
 
     else:
 
         miformularioEmpresa = Empresa_formulario()
     
-    return render(request, r'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\formularios\empresa.html', {'miformularioEmpresa':miformularioEmpresa})
-
+    return render(request, 'empresa.html', {'miformularioEmpresa':miformularioEmpresa})
 
 def producto_formulario(request):
 
@@ -43,18 +42,17 @@ def producto_formulario(request):
 
             informacion = miformularioProducto.cleaned_data
 
-            producto = Producto(nombre_producto=informacion['nombre_producto'])
+            producto = Producto(nombre_producto=informacion['nombre_producto'], producto_empresa=informacion['producto_empresa'])
 
             producto.save()
 
-            return render(request, r'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\gracias.html')
+            return render(request, 'gracias.html')
 
     else:
 
         miformularioProducto = Producto_formulario()
     
-    return render(request, r'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\formularios\producto.html', {'miformularioProducto':miformularioProducto})
-
+    return render(request, 'producto.html', {'miformularioProducto':miformularioProducto})
 
 def empleado_formulario(request):
 
@@ -66,30 +64,27 @@ def empleado_formulario(request):
 
             informacion = miformularioEmpleado.cleaned_data
 
-            empleado = Empleado(nombre_completo=informacion['nombre_completo'], puesto=informacion['puesto'])
+            empleado = Empleado(nombre_completo=informacion['nombre_completo'], puesto=informacion['puesto'], empresa_trabajo=informacion['empresa_trabajo'])
 
             empleado.save()
 
-            return render(request, r'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\gracias.html')
+            return render(request, 'gracias.html')
 
     else:
 
         miformularioEmpleado = Empleado_formulario()
 
-    return render(request, r'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\formularios\empleado.html', {'miformularioEmpleado':miformularioEmpleado})
-
+    return render(request, 'empleado.html', {'miformularioEmpleado':miformularioEmpleado})
 
 def busqueda_producto(request):
 
-    return render(request, r"C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\busqueda_y_resultados\busqueda_productos.html")
-
+    return render(request, "busqueda_productos.html")
 
 def busqueda_empleados(request):
 
-    return render(request, r'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\busqueda_y_resultados\busqueda_empleados.html')
+    return render(request, 'busqueda_empleados.html')
 
-
-def buscar_producto(request):
+def resultado_producto(request):
 
     if request.GET['nombre_producto']: # [va la caracteristica que va en el model]
 
@@ -97,16 +92,15 @@ def buscar_producto(request):
 
         productos = Producto.objects.filter(nombre_producto__icontains=producto) # icontains sirve para ver lo que contiene la variable que se le asigne
 
-        return render(request, r'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\busqueda_y_resultados\resultado_busqueda_productos.html', {'productos':productos, 'producto':producto})
+        return render(request, 'resultado_busqueda_productos.html', {'productos':productos, 'producto':producto})
 
     else:
 
-        mensaje = r'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\mensaje.html'
+        mensaje = 'mensaje.html'
 
     return render(request, mensaje)
 
-
-def buscar_persona(request):
+def resultado_persona(request):
 
     if request.GET['nombre_completo']: #Esta busqueda que realiza la funcion es solo con el nombre
 
@@ -114,10 +108,10 @@ def buscar_persona(request):
 
         empleados = Empleado.objects.filter(nombre_completo__icontains=empleado)
 
-        return render(request, r'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\busqueda_y_resultados\resultado_busqueda_empleado.html', {'empleados':empleados, 'empleado':empleado})
+        return render(request, 'resultado_busqueda_empleado.html', {'empleados':empleados, 'empleado':empleado})
 
     else:
 
-        mensaje = r'C:\Users\folco\Desktop\tp7\servertp\apptp\plantillas\mensaje.html'
+        mensaje = 'mensaje.html'
 
     return render(request, mensaje)
